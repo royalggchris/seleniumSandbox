@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -30,6 +31,12 @@ public class BasicTest {
   @Test
   public void test() throws Exception {
 	driver.get(baseUrl + "/");
+	driver.findElement(By.id("gbqfq")).clear();
+	driver.findElement(By.id("gbqfq")).sendKeys("avacado fries");
+	driver.findElement(By.id("gbqfb")).click();
+	driver.findElement(By.cssSelector("a.q.qs")).click();
+	  
+	driver.get(baseUrl + "/");
     driver.findElement(By.id("gbqfq")).clear();
     driver.findElement(By.id("gbqfq")).sendKeys("cars");
     driver.findElement(By.id("gbqfb")).click();
@@ -40,11 +47,11 @@ public class BasicTest {
     driver.findElement(By.cssSelector("img.thumbimage")).click();
     driver.findElement(By.cssSelector("img[alt=\"File:Toothlessconceptart.jpg\"]")).click();
     
-    driver.get(baseUrl + "/");
-    driver.findElement(By.id("gbqfq")).clear();
-    driver.findElement(By.id("gbqfq")).sendKeys("avacado fries");
-    driver.findElement(By.id("gbqfb")).click();
-    driver.findElement(By.cssSelector("a.q.qs")).click();
+    driver.get("http://en.wikipedia.org/wiki/File:Toothlessconceptart.jpg");
+    
+    String text = "From Wikipedia";
+    String bodyText = driver.findElement(By.id("siteSub")).getText();
+    Assert.assertTrue("Text not found!", bodyText.contains(text));
     Thread.sleep(5000);
   }
 
