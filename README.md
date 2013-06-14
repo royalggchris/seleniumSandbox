@@ -22,3 +22,9 @@ Both can be found on the Selenium's webpage.
 -- Move resulting .java file into the Eclipse project directory
 
 -- Run the .java file with a JUnit 4 run configuration
+
+
+
+Note Chromedriver is already in its necessary location inside project folder.
+
+Install the IEDriver to get it to work with IE
